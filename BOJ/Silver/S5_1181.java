@@ -21,16 +21,7 @@ public class S5_1181 {
             words.add(word);
         }
 
-        Collections.sort(words, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                if(o1.length() != o2.length()) {    // 최초 정렬 조건 : 단어의 길이
-                    return o1.length() - o2.length();
-                } else {                            // 다음 정렬 조건 : 사전순
-                    return o1.compareTo(o2);
-                }
-            }
-        });
+        Collections.sort(words, (a, b) -> (a.length == b.length) ? a.compareTo(b) : a.length - b.length });
 
         for (String word : words) {
             System.out.println(word);
